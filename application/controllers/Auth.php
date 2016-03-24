@@ -17,7 +17,6 @@ class Auth extends Application
   {
     $key = $_POST['userid'];
     $user = $this->users->get($key);
-
     if (password_verify($this->input->post('password'), $user->password))
     {
       $this->session->set_userdata('userID', $key);
@@ -32,4 +31,5 @@ class Auth extends Application
     $this->session->sess_destroy();
     redirect('/');
   }
+
 }
